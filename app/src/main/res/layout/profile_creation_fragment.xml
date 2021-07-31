@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/fab_margin"
+    android:layout_margin="@dimen/page_margin"
     tools:context=".ProfileCreationFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/profile_creation"
         android:textStyle="bold"
-        android:layout_marginVertical="@dimen/fab_margin"
+        android:paddingBottom="@dimen/basic_padding"
         style="@style/TextAppearance.MaterialComponents.Headline4"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintTop_toTopOf="parent"
@@ -86,7 +86,6 @@
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
         android:text="@string/submit"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"

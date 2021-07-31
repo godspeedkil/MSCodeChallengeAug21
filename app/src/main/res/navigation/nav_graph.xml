@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/profile_creation_fragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/profile_creation_fragment"
         android:name="com.ms.app.ProfileCreationFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/profile_creation_fragment_label"
         tools:layout="@layout/profile_creation_fragment">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_profile_creation_to_confirmation"
+            app:destination="@id/confirmation_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.ms.app.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/confirmation_fragment"
+        android:name="com.ms.app.ConfirmationFragment"
+        android:label="@string/profile_creation_fragment_label"
+        tools:layout="@layout/confirmation_fragment">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_confirmation_to_profile_creation"
+            app:destination="@id/profile_creation_fragment" />
     </fragment>
 </navigation>

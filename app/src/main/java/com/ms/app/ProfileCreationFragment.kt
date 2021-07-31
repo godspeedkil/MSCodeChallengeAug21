@@ -30,7 +30,7 @@ class ProfileCreationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.submitButton.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_profile_creation_to_confirmation)
         }
 
     }

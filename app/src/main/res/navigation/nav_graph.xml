@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.ms.app.FirstFragment"
+        android:name="com.ms.app.ProfileCreationFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/profile_creation_fragment">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

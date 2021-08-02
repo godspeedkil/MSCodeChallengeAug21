@@ -6,4 +6,6 @@ object Versions {
 
     const val room = "2.3.0"
 
+    const val junit = "4.13.2"
+
 }

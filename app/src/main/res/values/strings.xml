@@ -6,6 +6,7 @@
     <string name="confirmation_fragment_label">Confirmation Fragment</string>
 
     <string name="confirmation_description">Your super-awesome portfolio has been successfully submitted! The details below will be public within your community!</string>
+    <string name="email_already_in_db">Email already in database!</string>
     <string name="hello">Hello!</string>
     <string name="hello_with_name">Hello, %s!</string>
     <string name="hint_email_address">Email Address</string>

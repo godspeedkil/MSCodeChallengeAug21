@@ -38,7 +38,7 @@ class UserDatabaseTest {
     fun setup() {
         db = Room.databaseBuilder(
             ApplicationProvider.getApplicationContext(),
-            UserDatabase::class.java, "database-name"
+            UserDatabase::class.java, "user-database"
         ).build()
 
         userDao = db.userDao()

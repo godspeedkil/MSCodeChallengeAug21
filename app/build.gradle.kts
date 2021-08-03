@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -44,6 +45,11 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":app:persistence"))
+
+    implementation("com.google.dagger:hilt-android:${Versions.dagger}")
+    kapt("com.google.dagger:hilt-compiler:${Versions.dagger}")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
     implementation("androidx.core:core-ktx:1.6.0")

@@ -39,8 +39,8 @@ android {
 
 dependencies {
 
-    implementation("androidx.room:room-runtime:${Versions.room}")
-    implementation("androidx.room:room-ktx:${Versions.room}")
+    api("androidx.room:room-runtime:${Versions.room}")
+    api("androidx.room:room-ktx:${Versions.room}")
     kapt("androidx.room:room-compiler:${Versions.room}")
 
     implementation("androidx.core:core-ktx:1.6.0")

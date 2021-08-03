@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -22,7 +21,7 @@ class ConfirmationFragment : Fragment() {
 
     @Inject lateinit var activity: AppCompatActivity
 
-    lateinit var userViewModel: UserViewModel
+    private lateinit var userViewModel: UserViewModel
 
     private var _binding: ConfirmationFragmentBinding? = null
     private val binding get() = _binding!!
@@ -59,16 +58,12 @@ class ConfirmationFragment : Fragment() {
                 binding.websiteDisplay.setTextOrGone(user.website)
 
                 user.firstName?.let {
-                    binding.greetingText.text = context?.getString(R.string.hello_with_name, it)
+                    binding.greetingText.text = getString(R.string.hello_with_name, it)
                 } ?: run {
-                    binding.greetingText.text = context?.getString(R.string.hello)
+                    binding.greetingText.text = getString(R.string.hello)
                 }
             }
         })
-
-        binding.signInButton.setOnClickListener {
-            Toast.makeText(context, R.string.not_implemented, Toast.LENGTH_LONG).show()
-        }
     }
 
     override fun onDestroyView() {

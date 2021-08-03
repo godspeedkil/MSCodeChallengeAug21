@@ -7,9 +7,8 @@
 
     <fragment
         android:id="@+id/profile_creation_fragment"
-        android:name="com.ms.app.ProfileCreationFragment"
-        android:label="@string/profile_creation_fragment_label"
-        tools:layout="@layout/profile_creation_fragment">
+        android:name="com.ms.app.InitialFragment"
+        tools:layout="@layout/initial_fragment">
 
         <action
             android:id="@+id/action_profile_creation_to_confirmation"
@@ -18,7 +17,6 @@
     <fragment
         android:id="@+id/confirmation_fragment"
         android:name="com.ms.app.ConfirmationFragment"
-        android:label="@string/profile_creation_fragment_label"
         tools:layout="@layout/confirmation_fragment">
 
         <action

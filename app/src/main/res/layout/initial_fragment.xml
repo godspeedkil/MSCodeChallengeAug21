@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/page_margin"
-    tools:context=".ProfileCreationFragment">
+    tools:context=".InitialFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/greeting_text"
+        android:id="@+id/header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/profile_creation"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/profile_creation_description"
-        app:layout_constraintTop_toBottomOf="@id/greeting_text"
+        app:layout_constraintTop_toBottomOf="@id/header_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
@@ -65,6 +65,7 @@
         android:autofillHints="password"
         android:hint="@string/hint_password"
         android:layout_marginVertical="@dimen/fab_margin"
+        android:imeOptions="actionNext"
         app:layout_constraintTop_toBottomOf="@id/email_edit"
         app:layout_constraintStart_toStartOf="@id/subheader_text"
         app:layout_constraintEnd_toEndOf="@id/subheader_text"
@@ -77,9 +78,34 @@
         android:inputType="text"
         android:hint="@string/hint_website"
         android:layout_marginVertical="@dimen/fab_margin"
+        android:imeOptions="actionGo"
         app:layout_constraintTop_toBottomOf="@id/password_edit"
         app:layout_constraintStart_toStartOf="@id/subheader_text"
         app:layout_constraintEnd_toEndOf="@id/subheader_text"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/login_cta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in_instead"
+        android:textColor="@color/design_default_color_primary"
+        android:paddingVertical="@dimen/basic_padding"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="@id/header_text"
+        app:layout_constraintTop_toBottomOf="@id/website_edit"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in"
+        app:cornerRadius="@dimen/basic_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="gone"
         />
 
     <com.google.android.material.button.MaterialButton

@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/basic_padding"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/subheader_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/basic_padding"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/website_display"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,18 +68,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         style="@style/TextAppearance.AppCompat.Body2"
         tools:text="My email"
-        />
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_in"
-        app:cornerRadius="@dimen/basic_padding"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

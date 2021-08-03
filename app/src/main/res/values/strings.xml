@@ -13,10 +13,14 @@
     <string name="hint_first_name">First Name</string>
     <string name="hint_password">Password</string>
     <string name="hint_website">Website</string>
+    <string name="invalid_email_and_password_combination">Invalid email and password combination!</string>
     <string name="invalid_empty_fields">Email and password cannot be empty!</string>
     <string name="not_implemented">Not implemented, yet ;)</string>
     <string name="profile_creation">Profile Creation</string>
     <string name="profile_creation_description">Use the form below to submit your portfolio. \nAn email and password are required.</string>
+    <string name="return_to_profile_creation">Return to profile creation</string>
     <string name="sign_in">Sign In</string>
+    <string name="sign_in_description">Existing users please authenticate.</string>
+    <string name="sign_in_instead">Sign in instead</string>
     <string name="submit">Submit</string>
 </resources>

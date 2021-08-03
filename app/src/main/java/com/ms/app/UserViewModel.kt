@@ -8,6 +8,8 @@ import com.ms.persistence.User
 import com.ms.persistence.UserDatabase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -34,16 +36,26 @@ class UserViewModel @Inject constructor(
     }
 
     /**
-     * Returns true/false for success
+     * Returns true/false corresponding to user creation in database
      */
-    suspend fun addNewUser(user: User) : Boolean {
+    suspend fun addNewUserToDatabase(user: User) : Boolean {
         return if (isAlreadyInDatabase(user)) {
             false
         } else {
-            db.userDao().addNewUser(user)
-            _userLiveData.postValue(user)
-            true
+            withContext(Dispatchers.IO) {
+                db.userDao().addNewUser(user)
+                _userLiveData.postValue(user)
+                true
+            }
         }
+    }
+
+    suspend fun loginUser(emailAddress: String, password: String): User? {
+        val retrievedUser = db.userDao().findByEmailAndPassword(emailAddress, password)
+
+        retrievedUser?.let { _userLiveData.postValue(it) }
+
+        return retrievedUser
     }
 
     fun logoutUser() {

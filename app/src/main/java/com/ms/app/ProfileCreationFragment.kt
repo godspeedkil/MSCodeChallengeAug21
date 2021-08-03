@@ -56,12 +56,12 @@ class ProfileCreationFragment : Fragment() {
 
     private fun submitNewUser() {
         viewLifecycleOwner.lifecycleScope.launch {
-            val newUser = User(
-                emailAddress = binding.emailEdit.text.toString(),
-                firstName = binding.firstNameEdit.text.toString(),
-                password = binding.passwordEdit.text.toString(),
-                website = binding.websiteEdit.text.toString()
-            )
+            val newUser = attemptCreateNewUser()
+
+            if (newUser == null) {
+                Toast.makeText(context, R.string.invalid_empty_fields, Toast.LENGTH_LONG).show()
+                return@launch
+            }
 
             if (userViewModel.addNewUser(newUser)) {
                 findNavController().navigate(R.id.action_profile_creation_to_confirmation)
@@ -69,6 +69,19 @@ class ProfileCreationFragment : Fragment() {
                 Toast.makeText(context, R.string.email_already_in_db, Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun attemptCreateNewUser() : User? {
+        if (binding.emailEdit.text.isNullOrBlank() || binding.passwordEdit.text.isNullOrBlank()) {
+            return null
+        }
+
+        return User(
+            emailAddress = binding.emailEdit.text.toString(),
+            firstName = binding.firstNameEdit.text.toString().nullIfBlank(),
+            password = binding.passwordEdit.text.toString(),
+            website = binding.websiteEdit.text.toString().nullIfBlank()
+        )
     }
 
 }

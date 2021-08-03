@@ -5,10 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.ms.app.databinding.ConfirmationFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -21,8 +22,22 @@ class ConfirmationFragment : Fragment() {
 
     @Inject lateinit var activity: AppCompatActivity
 
+    lateinit var userViewModel: UserViewModel
+
     private var _binding: ConfirmationFragmentBinding? = null
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        userViewModel = ViewModelProvider(activity).get(UserViewModel::class.java)
+
+        activity.onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                userViewModel.logoutUser()
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,15 +52,23 @@ class ConfirmationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val userViewModel: UserViewModel = ViewModelProvider(activity).get(UserViewModel::class.java)
-
         userViewModel.userLiveData.observe(viewLifecycleOwner, Observer { user ->
             user?.let {
                 binding.emailDisplay.text = user.emailAddress
                 binding.nameDisplay.setTextOrGone(user.firstName)
                 binding.websiteDisplay.setTextOrGone(user.website)
+
+                user.firstName?.let {
+                    binding.greetingText.text = context?.getString(R.string.hello_with_name, it)
+                } ?: run {
+                    binding.greetingText.text = context?.getString(R.string.hello)
+                }
             }
         })
+
+        binding.signInButton.setOnClickListener {
+            Toast.makeText(context, R.string.not_implemented, Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onDestroyView() {

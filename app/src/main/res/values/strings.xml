@@ -13,6 +13,8 @@
     <string name="hint_first_name">First Name</string>
     <string name="hint_password">Password</string>
     <string name="hint_website">Website</string>
+    <string name="invalid_empty_fields">Email and password cannot be empty!</string>
+    <string name="not_implemented">Not implemented, yet ;)</string>
     <string name="profile_creation">Profile Creation</string>
     <string name="profile_creation_description">Use the form below to submit your portfolio. \nAn email and password are required.</string>
     <string name="sign_in">Sign In</string>

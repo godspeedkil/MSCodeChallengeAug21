@@ -10,6 +10,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+/**
+ * Middleware for managing user state and retrieval
+ *
+ * Intended to act as user state holder if tied to an Activity, in a single-Activity application.
+ *
+ * Note: User state may need to be refactored into a singleton class in a multiple-Activity application.
+ */
 @HiltViewModel
 class UserViewModel @Inject constructor(
     @ApplicationContext context: Context
@@ -22,7 +29,7 @@ class UserViewModel @Inject constructor(
 
     private val db = UserDatabase.getDbInstance(context)
 
-    suspend fun isAlreadyInDatabase(user: User) : Boolean {
+    private suspend fun isAlreadyInDatabase(user: User) : Boolean {
         return db.userDao().findByEmailAddress(user.emailAddress) != null
     }
 
@@ -34,9 +41,13 @@ class UserViewModel @Inject constructor(
             false
         } else {
             db.userDao().addNewUser(user)
-            _userLiveData.value = user
+            _userLiveData.postValue(user)
             true
         }
+    }
+
+    fun logoutUser() {
+        _userLiveData.postValue(null)
     }
 
 }
